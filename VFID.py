@@ -3,7 +3,7 @@ from pandas import read_excel
 
 def vfid_data() -> None:
 	try:
-		excel_df = read_excel("VFID.xlsx")
+		excel_df = read_excel(dir_path + 'VFID.xlsx')
 	except FileNotFoundError:
 		print("[INFO] Please provide the Excel file.")
 		exit(0)
@@ -41,11 +41,12 @@ def vfid_data() -> None:
 
 
 def print_to_file(usage_data: list) -> None:
-	with open('vfID.txt', 'a') as f:
+	with open(dir_path + 'vfID.txt', 'a') as f:
 		f.write("================================================================\n")
 		for row in usage_data:
 			f.write(f"{row[0]}\t{row[1]}\n")
 
 
 if __name__ == "__main__":
+	dir_path = 'C:\\Users\\Dipaditya\\Downloads\\'
 	vfid_data()
